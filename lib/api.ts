@@ -9,19 +9,19 @@ const api = axios.create({
   }
 });
 
-// Response interceptor for handling 401 errors
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401 && typeof window !== 'undefined') {
-      // Only redirect if not already on login page
-      if (!window.location.pathname.includes('/login')) {
-        window.location.href = '/login';
-      }
-    }
-    return Promise.reject(error);
-  }
-);
+// // Response interceptor for handling 401 errors
+// api.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     if (error.response?.status === 401 && typeof window !== 'undefined') {
+//       // Only redirect if not already on login page
+//       if (!window.location.pathname.includes('/login')) {
+//         window.location.href = '/login';
+//       }
+//     }
+//     return Promise.reject(error);
+//   }
+// );
 
 // Auth API
 export const authApi = {
