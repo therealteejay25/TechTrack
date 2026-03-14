@@ -2,7 +2,7 @@ import axios from 'axios';
 import type { User, Organization, Device, Assignment, AuditLog, DashboardStats } from './types';
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: '/api',  // ✅ Now same-origin — no more cross-site cookie issues
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json'
